@@ -1,4 +1,5 @@
 import graphql, { GraphQLObjectType, GraphQLString } from "graphql";
+import { resolve } from "path";
 
 const BookType = new GraphQLObjectType({
   name: "Book",
@@ -16,4 +17,19 @@ const BookType = new GraphQLObjectType({
       require: true;
     }
   }
+});
+
+const RootQuery = new GraphQLObjectType({
+  name: "RootQueryType",
+  fields: {
+    book: {
+      type: BookType,
+      args: { id: { type: GraphQLString } },
+      resolve(parent, args) {}
+    }
+  }
+});
+
+module.exports = new GraphQLSchema({
+  query: RootQuery
 });
