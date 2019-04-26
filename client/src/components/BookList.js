@@ -8,7 +8,7 @@ const displayBooks = books => {
       {books.map((book, id) => {
         return (
           <li key={id}>
-            <bold>{book.name}</bold> a {book.genre} book by {book.author.name}
+            {book.name} a {book.genre} book by {book.author.name}
           </li>
         );
       })}
